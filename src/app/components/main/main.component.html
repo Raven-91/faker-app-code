@@ -1,0 +1,30 @@
+<main class="py-8">
+  <div class="container mx-auto">
+    <section class="toolbar flex justify-between">
+      <div class="toolbar__items toolbar__items_left flex flex-col basis-5/12">
+        <div class="toolbar__item item-toolbar flex flex-col gap-4 w-80">
+          <div class="item-toolbar__name text-lg font-medium">State</div>
+          <app-select [items]="selectData" [selected]="selectedValue" (changeSelectValue)="processChangeState($event)"></app-select>
+        </div>
+        <div class="toolbar__item flex flex-col gap-4 w-80">
+          <div class="item-toolbar__name text-lg font-medium">Error</div>
+          <app-range [sliderRange]="sliderRange" (changeRangeValue)="processChangeRange($event)"></app-range>
+        </div>
+        <div class="toolbar__item flex flex-col gap-4">
+          <div class="item-toolbar__name text-lg font-medium">Seed</div>
+          <app-seed-input [initialSeedInputValue]="seedValue" (changeSeedInputValue)="processChangeSeed($event)"></app-seed-input>
+        </div>
+      </div>
+      <div class="toolbar__items toolbar__items_right self-end">
+        <div class="toolbar__item flex flex-col gap-4">
+          <div class="item-toolbar__name text-lg font-medium">Export CSV file</div>
+          <app-csv-export [tableDate]="tableDate"></app-csv-export>
+        </div>
+      </div>
+    </section>
+    <section class="table my-10 w-full">
+      <app-table [dataSource]="tableDate" [displayedColumns]="displayedColumns"></app-table>
+    </section>
+  </div>
+</main>
+

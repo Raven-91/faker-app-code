@@ -1,0 +1,9 @@
+@if (initialSeedInputValue) {
+  <div class="seed flex items-stretch gap-5">
+    <mat-form-field class="w-80">
+      <mat-label>Seed</mat-label>
+      <input type="number" minlength="0" matInput #seedInput (change)="onSeedChange(seedInput.value)" value="{{initialSeedInputValue}}">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="button" (click)="randomSeedValue()">Random</button>
+  </div>
+}

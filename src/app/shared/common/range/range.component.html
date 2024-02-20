@@ -1,0 +1,22 @@
+@if (sliderRange) {
+  <div class="range flex flex-col gap-4">
+    <mat-slider class="w-80"
+                [max]="sliderRange.max"
+                [min]="sliderRange.min"
+                [step]="sliderRange.step"
+                [discrete]="sliderRange.thumbLabel"
+                [showTickMarks]="sliderRange.showTicks">
+      <input matSliderThumb #slider [(ngModel)]="sliderRange.value" (change)="onChangeRange(slider.value)">
+    </mat-slider>
+
+    <mat-form-field class="w-80">
+      <mat-label>Input the number of errors</mat-label>
+      <input
+        type="number"
+        min="0" max="1000"
+        step="0.25" placeholder="0"
+        matInput
+        (change)="onChangeInput(input.value)" #input>
+    </mat-form-field>
+  </div>
+}

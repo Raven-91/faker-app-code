@@ -1,0 +1,10 @@
+@if (items && items.length > 0) {
+  <mat-form-field class="w-full">
+    <mat-label>Select a state</mat-label>
+    <mat-select [(value)]="selected" (selectionChange)="onChangeSelect($event)">
+      @for (item of items; track item) {
+        <mat-option value="{{ item.option }}">{{ item.state }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+}
